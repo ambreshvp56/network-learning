@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Networking Lab</title>
+  <link rel="stylesheet" href="./styles.css?v=20261124" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">⌁</span><div><strong>AWS Networking Lab</strong><span>Active visual learning</span></div></div>
+      <div class="top-actions"><button class="icon-btn" id="themeBtn" aria-label="Toggle theme">◐</button><button class="icon-btn" id="resetBtn" aria-label="Reset progress">↺</button></div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="side-heading"><span>YOUR PATH</span><span id="progressText">0 / 6</span></div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+      <nav id="lessonNav" aria-label="Lessons"></nav>
+      <div class="side-note"><span class="pulse"></span><div><b>Learning loop</b><small>Predict → observe → explain → recall</small></div></div>
+    </aside>
+
+    <main class="main">
+      <section class="lesson-head">
+        <div><p class="eyebrow" id="lessonMeta">01 · FOUNDATIONS</p><h1 id="lessonTitle">How an HTTPS request travels through AWS</h1><p id="lessonIntro">Follow one browser request from DNS to a private application and back. Your job is to predict each decision.</p></div>
+        <div class="lesson-badges"><span>Beginner</span><span>12 min</span><span id="stepBadge">Step 1 of 6</span></div>
+      </section>
+
+      <section class="workspace">
+        <div class="visual-panel">
+          <div class="visual-toolbar"><span class="traffic-legend"><i class="request-dot"></i> request <i class="response-dot"></i> response <i class="decision-dot"></i> decision</span><div><button class="tool-btn" id="pauseBtn">Ⅱ</button><button class="tool-btn" id="replayBtn">↺</button></div></div>
+          <div class="diagram" id="diagram" aria-label="Interactive AWS request diagram"></div>
+          <div class="step-strip" id="stepStrip"></div>
+        </div>
+
+        <aside class="guide-panel">
+          <div class="guide-kicker" id="guideKicker">STEP 1 / 6 · PROBLEM</div>
+          <h2 id="guideTitle">A user says the app is slow</h2>
+          <p id="guideBody">Before changing architecture, locate the time. A page load is a chain of decisions across DNS, routing, security controls, and application tiers.</p>
+          <div class="key-idea"><b>KEY IDEA</b><span id="keyIdea">Every hop is a decision point. The packet only moves when the next system permits it.</span></div>
+          <div class="decision-box" id="decisionBox"><b>Predict the next hop</b><p id="questionText"></p><div id="choices"></div><div class="feedback" id="feedback" aria-live="polite"></div></div>
+          <div class="what-changed" id="whatChanged"></div>
+          <div class="guide-actions"><button class="secondary" id="backBtn">← Back</button><button class="primary" id="nextBtn">Next: DNS lookup →</button></div>
+        </aside>
+      </section>
+
+      <section class="learn-row"><div><span class="section-label">YOU’LL LEARN</span><div class="learn-pills" id="learnPills"></div></div><div class="shortcut"><kbd>Space</kbd> next step <kbd>R</kbd> replay</div></section>
+    </main>
+  </div>
+  <script src="./app.js?v=20261124"></script>
+</body>
+</html>
