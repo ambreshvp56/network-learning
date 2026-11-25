@@ -69,8 +69,9 @@ const curriculum = [
 ];
 
 const lessons=curriculum.flatMap((module,moduleIndex)=>module.lessons.map((raw,lessonIndex)=>({id:`${module.id}-${lessonIndex}`,module:module.label,moduleIndex,lessonIndex,title:raw[0],summary:raw[1],idea:raw[2],question:raw[3],choices:raw[4],correct:raw[5],why:raw[6],exercise:raw[7]})));
-const TOTAL=lessons.length; let state={lesson:0,step:0,solved:{},dark:false};
+const TOTAL=lessons.length; let state={lesson:0,step:0,solved:{},dark:false,version:2};
 try{const saved=localStorage.getItem('aws-networking-state');if(saved)state={...state,...JSON.parse(saved)}}catch(e){}
+if(state.version!==2){state={lesson:0,step:0,solved:{},dark:false,version:2};localStorage.removeItem('aws-networking-state')}
 state.lesson=Math.min(Math.max(Number(state.lesson)||0,0),TOTAL-1);state.step=Math.min(Math.max(Number(state.step)||0,0),3);
 const $=id=>document.getElementById(id);const current=()=>lessons[state.lesson];
 function save(){localStorage.setItem('aws-networking-state',JSON.stringify(state));updateProgress()}
